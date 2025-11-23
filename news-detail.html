@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Detail - How Technology is Revolutionizing Construction | PT Armindo Jaya Mandiri</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-navy: #0a1f44;
+            --secondary-orange: #ff6634;
+            --light-bg: #f8f9fc;
+            --text-dark: #2c3e50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--primary-navy);
+            color: white;
+            padding: 0.6rem 0;
+            font-size: 0.875rem;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .top-bar a:hover {
+            color: var(--secondary-orange);
+        }
+
+        .top-bar i {
+            margin-right: 0.4rem;
+            color: var(--secondary-orange);
+        }
+
+        /* Navbar */
+        .navbar {
+            background: white !important;
+            padding: 1rem 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-navy) !important;
+        }
+
+        .navbar-brand i {
+            color: var(--secondary-orange);
+            margin-right: 0.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            margin: 0 0.8rem;
+            padding: 0.5rem 0 !important;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-orange) !important;
+        }
+
+        .btn-contact {
+            background: var(--secondary-orange);
+            color: white;
+            padding: 0.6rem 1.8rem;
+            border-radius: 25px;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s;
+        }
+
+        .btn-contact:hover {
+            background: #e55a2d;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 102, 52, 0.3);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb-section {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, #1a2f5a 100%);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .breadcrumb {
+            background: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: ">";
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .breadcrumb-item a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--secondary-orange);
+        }
+
+        .breadcrumb-item.active {
+            color: var(--secondary-orange);
+        }
+
+        /* News Header */
+        .news-header {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .news-category {
+            display: inline-block;
+            background: rgba(255, 102, 52, 0.1);
+            color: var(--secondary-orange);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .news-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-navy);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .news-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .meta-item i {
+            color: var(--secondary-orange);
+        }
+
+        /* Featured Image */
+        .featured-image {
+            padding: 3rem 0;
+            background: var(--light-bg);
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        /* News Content */
+        .news-content {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .content-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .content-body h2 {
+            color: var(--primary-navy);
+            font-weight: 700;
+            margin: 2.5rem 0 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .content-body h3 {
+            color: var(--primary-navy);
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            font-size: 1.4rem;
+        }
+
+        .content-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .content-body ul, .content-body ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .content-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background: var(--light-bg);
+            border-left: 4px solid var(--secondary-orange);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-style: italic;
+            color: var(--text-dark);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .sidebar h5 {
+            color: var(--primary-navy);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .related-news {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .related-news:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .related-news img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+
+        .related-content h6 {
+            color: var(--primary-navy);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            line-height: 1.3;
+        }
+
+        .related-content p {
+            color: #666;
+            font-size: 0.8rem;
+            margin: 0;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .tag:hover {
+            background: var(--secondary-orange);
+            color: white;
+            border-color: var(--secondary-orange);
+        }
+
+        /* Share Section */
+        .share-section {
+            padding: 3rem 0;
+            background: var(--light-bg);
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .share-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .share-facebook {
+            background: #1877f2;
+            color: white;
+        }
+
+        .share-twitter {
+            background: #1da1f2;
+            color: white;
+        }
+
+        .share-linkedin {
+            background: #0077b5;
+            color: white;
+        }
+
+        .share-whatsapp {
+            background: #25d366;
+            color: white;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            color: white;
+        }
+
+        /* Comments Section */
+        .comments-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .comment-form {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+        }
+
+        .comment-item {
+            padding: 1.5rem;
+            border: 1px solid #eee;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+        }
+
+        .comment-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .comment-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .comment-info h6 {
+            margin: 0;
+            color: var(--primary-navy);
+            font-weight: 600;
+        }
+
+        .comment-info p {
+            margin: 0;
+            color: #666;
+            font-size: 0.8rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-navy);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer h5 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-orange);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .social-icons a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--secondary-orange);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 3rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .news-title {
+                font-size: 2rem;
+            }
+            
+            .news-meta {
+                gap: 1rem;
+            }
+            
+            .featured-image img {
+                height: 300px;
+            }
+            
+            .content-body {
+                font-size: 1rem;
+            }
+
+            .share-buttons {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .share-btn {
+                font-size: 0.8rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="tel:+6221123456"><i class="fas fa-phone"></i>(021) 555-0123</a>
+                    <a href="mailto:info@armindojaya.com"><i class="fas fa-envelope"></i>example@gmail.com</a>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-industry"></i> Constru.
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#team">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact Us</a></li>
+                </ul>
+                <button class="btn btn-contact">Get A Quote</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb Section -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="index.html#blog">News & Blog</a></li>
+                    <li class="breadcrumb-item active">Technology in Construction</li>
+                </ol>
+            </nav>
+            <h1 class="display-4 fw-bold mt-3">News & Insights</h1>
+            <p class="lead mb-0">Latest trends and insights in construction and fabrication industry</p>
+        </div>
+    </section>
+
+    <!-- News Header -->
+    <section class="news-header">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="news-category">Construction Trends</div>
+                    <h1 class="news-title">How Technology is Revolutionizing Construction Industry</h1>
+                    <div class="news-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-calendar"></i>
+                            <span>January 20, 2024</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-user"></i>
+                            <span>By Admin</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-clock"></i>
+                            <span>5 min read</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-eye"></i>
+                            <span>1,245 views</span>
+                        </div>
+                    </div>
+                    <p class="lead">Industri konstruksi mengalami transformasi digital yang signifikan dengan adopsi teknologi terdepan. Dari automation hingga artificial intelligence, inovasi ini mengubah cara kita membangun infrastruktur modern.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Image -->
+    <section class="featured-image">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?w=1200&q=80" alt="Construction Technology" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Content -->
+    <section class="news-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="content-body">
+                        <p>Revolusi teknologi dalam industri konstruksi telah mengubah paradigma tradisional pembangunan. PT Armindo Jaya Mandiri sebagai perusahaan fabrikasi dan konstruksi terdepan, terus mengadopsi inovasi teknologi untuk meningkatkan efisiensi, kualitas, dan keselamatan dalam setiap proyek yang dikerjakan.</p>
+
+                        <h2>Building Information Modeling (BIM)</h2>
+                        <p>BIM telah menjadi standar baru dalam industri konstruksi. Teknologi ini memungkinkan visualisasi 3D yang detail dari setiap komponen bangunan sebelum konstruksi dimulai. Dengan BIM, tim dapat:</p>
+                        
+                        <ul>
+                            <li>Melakukan simulasi konstruksi virtual untuk mengidentifikasi potensi masalah</li>
+                            <li>Mengoptimalkan penggunaan material dan mengurangi waste</li>
+                            <li>Meningkatkan koordinasi antar tim engineering, fabrikasi, dan konstruksi</li>
+                            <li>Memprediksi timeline proyek dengan akurasi tinggi</li>
+                        </ul>
+
+                        <div class="highlight-box">
+                            <p>"Implementasi BIM telah meningkatkan efisiensi proyek kami hingga 30% dan mengurangi rework hingga 85%. Ini adalah investasi teknologi yang sangat berharga untuk masa depan konstruksi." - Engineering Manager, PT Armindo Jaya Mandiri</p>
+                        </div>
+
+                        <h2>Automation dan Robotika</h2>
+                        <p>Otomatisasi dalam fabrikasi telah mengubah cara kita memproduksi komponen struktur baja. Teknologi yang kami gunakan meliputi:</p>
+
+                        <h3>CNC Cutting dan Welding Robots</h3>
+                        <p>Mesin CNC (Computer Numerical Control) memungkinkan pemotongan material dengan presisi tinggi dan konsistensi yang sempurna. Robot welding memberikan hasil pengelasan yang uniform dan mengurangi human error hingga minimum.</p>
+
+                        <h3>Automated Material Handling</h3>
+                        <p>Sistem conveyor otomatis dan crane dengan kontrol komputer meningkatkan efisiensi transportasi material dalam workshop, mengurangi waktu handling hingga 40%.</p>
+
+                        <h2>Internet of Things (IoT) dan Smart Monitoring</h2>
+                        <p>Implementasi sensor IoT memungkinkan monitoring real-time terhadap:</p>
+                        
+                        <ul>
+                            <li>Kondisi struktur selama dan setelah konstruksi</li>
+                            <li>Parameter lingkungan kerja untuk optimalisasi keselamatan</li>
+                            <li>Performa peralatan untuk predictive maintenance</li>
+                            <li>Progress proyek secara real-time</li>
+                        </ul>
+
+                        <h2>Artificial Intelligence dan Machine Learning</h2>
+                        <p>AI telah membantu dalam berbagai aspek konstruksi, mulai dari perencanaan hingga eksekusi. Aplikasi AI yang kami manfaatkan:</p>
+
+                        <h3>Predictive Analytics</h3>
+                        <p>Algoritma machine learning menganalisis data historik proyek untuk memprediksi potensi delay, overbudget, atau masalah kualitas. Ini memungkinkan tindakan preventif yang proaktif.</p>
+
+                        <h3>Quality Control Automation</h3>
+                        <p>Computer vision dengan AI dapat mendeteksi defect pada hasil fabrikasi dengan akurasi yang lebih tinggi dibanding inspeksi manual, mencapai tingkat akurasi 99.2%.</p>
+
+                        <h2>Sustainability Technology</h2>
+                        <p>Teknologi hijau menjadi fokus utama dalam konstruksi modern. PT Armindo Jaya Mandiri mengimplementasikan:</p>
+
+                        <ul>
+                            <li>Energy-efficient welding systems untuk mengurangi konsumsi listrik</li>
+                            <li>Waste management systems dengan recycling capabilities</li>
+                            <li>Low-emission coating systems untuk mengurangi dampak lingkungan</li>
+                            <li>Solar-powered workshop facilities</li>
+                        </ul>
+
+                        <div class="highlight-box">
+                            <p>Target kami adalah mencapai carbon-neutral manufacturing pada tahun 2030 melalui adopsi teknologi berkelanjutan dan optimalisasi proses produksi.</p>
+                        </div>
+
+                        <h2>Masa Depan Konstruksi</h2>
+                        <p>Ke depannya, kami melihat tren teknologi yang akan semakin mengubah industri konstruksi:</p>
+
+                        <h3>Digital Twin Technology</h3>
+                        <p>Replika digital dari aset fisik yang memungkinkan monitoring dan simulasi operasional secara real-time sepanjang lifecycle bangunan.</p>
+
+                        <h3>Augmented Reality (AR) dan Virtual Reality (VR)</h3>
+                        <p>AR/VR akan memungkinkan training yang lebih efektif, visualisasi design yang immersive, dan remote inspection capabilities.</p>
+
+                        <h3>Blockchain untuk Supply Chain</h3>
+                        <p>Teknologi blockchain akan meningkatkan transparansi dan traceability dalam supply chain material konstruksi, memastikan kualitas dan authenticity material.</p>
+
+                        <h2>Kesimpulan</h2>
+                        <p>Revolusi teknologi dalam konstruksi bukan lagi tentang masa depan, tetapi realitas saat ini. PT Armindo Jaya Mandiri berkomitmen untuk terus berinvestasi dalam teknologi terdepan guna memberikan solusi konstruksi dan fabrikasi terbaik bagi klien.</p>
+
+                        <p>Dengan adopsi teknologi yang tepat, industri konstruksi dapat mencapai level efisiensi, kualitas, dan sustainability yang belum pernah ada sebelumnya. Ini adalah era baru konstruksi yang lebih cerdas, lebih hijau, dan lebih inovatif.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="sidebar">
+                        <h5>Related Articles</h5>
+                        <div class="related-news">
+                            <img src="https://images.unsplash.com/photo-1590725140246-20acdee442be?w=200&q=80" alt="Project Management">
+                            <div class="related-content">
+                                <h6>Best Practices for Industrial Project Management</h6>
+                                <p>February 15, 2024</p>
+                            </div>
+                        </div>
+                        <div class="related-news">
+                            <img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=200&q=80" alt="Safety">
+                            <div class="related-content">
+                                <h6>Workplace Safety Guidelines in Steel Fabrication</h6>
+                                <p>March 02, 2024</p>
+                            </div>
+                        </div>
+                        <div class="related-news">
+                            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=200&q=80" alt="Green Building">
+                            <div class="related-content">
+                                <h6>Sustainable Construction: Green Building Practices</h6>
+                                <p>March 18, 2024</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar">
+                        <h5>Tags</h5>
+                        <div class="tags">
+                            <a href="#" class="tag">Construction Technology</a>
+                            <a href="#" class="tag">BIM</a>
+                            <a href="#" class="tag">Automation</a>
+                            <a href="#" class="tag">IoT</a>
+                            <a href="#" class="tag">AI</a>
+                            <a href="#" class="tag">Fabrication</a>
+                            <a href="#" class="tag">Industry 4.0</a>
+                            <a href="#" class="tag">Smart Construction</a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar">
+                        <h5>Newsletter</h5>
+                        <p>Subscribe untuk mendapatkan update terbaru tentang teknologi konstruksi dan proyek-proyek terbaru.</p>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Enter your email">
+                            <button class="btn btn-contact" type="button">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Share Section -->
+    <section class="share-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap">
+                        <h5 class="mb-3 mb-md-0">Share this article:</h5>
+                        <div class="share-buttons">
+                            <a href="#" class="share-btn share-facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                Facebook
+                            </a>
+                            <a href="#" class="share-btn share-twitter">
+                                <i class="fab fa-twitter"></i>
+                                Twitter
+                            </a>
+                            <a href="#" class="share-btn share-linkedin">
+                                <i class="fab fa-linkedin-in"></i>
+                                LinkedIn
+                            </a>
+                            <a href="#" class="share-btn share-whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                                WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comments Section -->
+    <section class="comments-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h3 class="mb-4">Comments (3)</h3>
+                    
+                    <div class="comment-form">
+                        <h5 class="mb-3">Leave a Comment</h5>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" placeholder="Your Email" required>
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control" rows="4" placeholder="Your Comment" required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-contact">Post Comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">JD</div>
+                            <div class="comment-info">
+                                <h6>John Doe</h6>
+                                <p>January 21, 2024 at 10:30 AM</p>
+                            </div>
+                        </div>
+                        <p>Artikel yang sangat informatif! Sebagai praktisi di bidang konstruksi, saya sangat mengapresiasi insight tentang implementasi teknologi BIM dan automation. Terima kasih telah berbagi pengalaman praktis.</p>
+                    </div>
+
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">MS</div>
+                            <div class="comment-info">
+                                <h6>Maria Santos</h6>
+                                <p>January 22, 2024 at 2:15 PM</p>
+                            </div>
+                        </div>
+                        <p>Sangat menarik bagian tentang AI dan machine learning dalam quality control. Apakah PT Armindo Jaya Mandiri sudah mengimplementasikan computer vision untuk inspeksi kualitas? Saya tertarik untuk mengetahui lebih detail.</p>
+                    </div>
+
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar">RP</div>
+                            <div class="comment-info">
+                                <h6>Rudi Pratama</h6>
+                                <p>January 23, 2024 at 9:45 AM</p>
+                            </div>
+                        </div>
+                        <p>Target carbon-neutral manufacturing pada 2030 sangat ambisius dan patut diapresiasi. Semoga industri konstruksi Indonesia dapat mengadopsi praktik berkelanjutan seperti ini secara lebih luas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5><i class="fas fa-industry me-2"></i>Constru.</h5>
+                    <p class="mb-4">We are a leading construction company dedicated to building excellence and delivering innovative solutions for all your construction needs.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5>Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Steel Fabrication</a></li>
+                        <li><a href="#">Industrial Construction</a></li>
+                        <li><a href="#">Equipment Installation</a></li>
+                        <li><a href="#">Piping Systems</a></li>
+                        <li><a href="#">Quality Assurance</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5>Company</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#team">Our Team</a></li>
+                        <li><a href="index.html#projects">Projects</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="#">Career</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to our newsletter to get the latest updates and news.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                        <button class="btn btn-contact" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PT Armindo Jaya Mandiri. All rights reserved. | Privacy Policy | Terms & Conditions</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

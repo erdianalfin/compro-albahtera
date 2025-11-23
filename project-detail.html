@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Detail - Industrial Steel Structure | PT Armindo Jaya Mandiri</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-navy: #0a1f44;
+            --secondary-orange: #ff6634;
+            --light-bg: #f8f9fc;
+            --text-dark: #2c3e50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--primary-navy);
+            color: white;
+            padding: 0.6rem 0;
+            font-size: 0.875rem;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .top-bar a:hover {
+            color: var(--secondary-orange);
+        }
+
+        .top-bar i {
+            margin-right: 0.4rem;
+            color: var(--secondary-orange);
+        }
+
+        /* Navbar */
+        .navbar {
+            background: white !important;
+            padding: 1rem 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-navy) !important;
+        }
+
+        .navbar-brand i {
+            color: var(--secondary-orange);
+            margin-right: 0.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            margin: 0 0.8rem;
+            padding: 0.5rem 0 !important;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-orange) !important;
+        }
+
+        .btn-contact {
+            background: var(--secondary-orange);
+            color: white;
+            padding: 0.6rem 1.8rem;
+            border-radius: 25px;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s;
+        }
+
+        .btn-contact:hover {
+            background: #e55a2d;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 102, 52, 0.3);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb-section {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, #1a2f5a 100%);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .breadcrumb {
+            background: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: ">";
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .breadcrumb-item a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--secondary-orange);
+        }
+
+        .breadcrumb-item.active {
+            color: var(--secondary-orange);
+        }
+
+        /* Project Header */
+        .project-header {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .project-category {
+            display: inline-block;
+            background: rgba(255, 102, 52, 0.1);
+            color: var(--secondary-orange);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-navy);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .meta-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--light-bg);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-orange);
+        }
+
+        .meta-content h6 {
+            margin: 0;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+
+        .meta-content p {
+            margin: 0;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* Project Gallery */
+        .project-gallery {
+            padding: 3rem 0;
+            background: var(--light-bg);
+        }
+
+        .main-image {
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .thumbnail-gallery {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+        }
+
+        .thumbnail {
+            flex-shrink: 0;
+            width: 120px;
+            height: 80px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 3px solid transparent;
+        }
+
+        .thumbnail:hover,
+        .thumbnail.active {
+            border-color: var(--secondary-orange);
+            transform: scale(1.05);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Project Content */
+        .project-content {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 2rem;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .spec-card {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .spec-card h6 {
+            color: var(--primary-navy);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .spec-card p {
+            color: #666;
+            margin: 0;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            margin-top: 3rem;
+        }
+
+        .step {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary-orange);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .step-content h5 {
+            color: var(--primary-navy);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content p {
+            color: #666;
+            margin: 0;
+        }
+
+        /* Related Projects */
+        .related-projects {
+            padding: 4rem 0;
+            background: var(--light-bg);
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            height: 350px;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-card-content {
+            padding: 1.5rem;
+        }
+
+        .project-card .category {
+            font-size: 0.8rem;
+            color: var(--secondary-orange);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card h5 {
+            color: var(--primary-navy);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-navy);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer h5 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-orange);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .social-icons a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--secondary-orange);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 3rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2rem;
+            }
+            
+            .project-meta {
+                gap: 1rem;
+            }
+            
+            .main-image img {
+                height: 300px;
+            }
+            
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="tel:+6221123456"><i class="fas fa-phone"></i>(021) 555-0123</a>
+                    <a href="mailto:info@armindojaya.com"><i class="fas fa-envelope"></i>example@gmail.com</a>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-industry"></i> Constru.
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#team">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact Us</a></li>
+                </ul>
+                <button class="btn btn-contact">Get A Quote</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb Section -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="index.html#projects">Projects</a></li>
+                    <li class="breadcrumb-item active">Industrial Steel Structure</li>
+                </ol>
+            </nav>
+            <h1 class="display-4 fw-bold mt-3">Project Detail</h1>
+            <p class="lead mb-0">Fabrikasi struktur baja berkualitas tinggi untuk industri</p>
+        </div>
+    </section>
+
+    <!-- Project Header -->
+    <section class="project-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="project-category">Steel Fabrication</div>
+                    <h1 class="project-title">Industrial Steel Structure</h1>
+                    <p class="lead mb-4">Fabrikasi struktur baja berkualitas tinggi untuk kebutuhan industri dengan presisi tinggi dan standar keselamatan internasional. Proyek ini mencakup pembuatan rangka baja untuk kompleks pabrik dengan kapasitas beban berat dan tahan korosi.</p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <div class="meta-icon">
+                                <i class="fas fa-calendar"></i>
+                            </div>
+                            <div class="meta-content">
+                                <h6>Duration</h6>
+                                <p>8 Months</p>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="meta-content">
+                                <h6>Location</h6>
+                                <p>Cikarang, Bekasi</p>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="meta-content">
+                                <h6>Client</h6>
+                                <p>PT Manufacturing Indo</p>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="meta-content">
+                                <h6>Status</h6>
+                                <p>Completed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Gallery -->
+    <section class="project-gallery">
+        <div class="container">
+            <div class="main-image">
+                <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1200&q=80" alt="Industrial Steel Structure" id="mainImage">
+            </div>
+            <div class="thumbnail-gallery">
+                <div class="thumbnail active" onclick="changeMainImage('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1200&q=80', this)">
+                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=300&q=80" alt="Welding Process">
+                </div>
+                <div class="thumbnail" onclick="changeMainImage('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80', this)">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=300&q=80" alt="Steel Framework">
+                </div>
+                <div class="thumbnail" onclick="changeMainImage('https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=1200&q=80', this)">
+                    <img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=300&q=80" alt="Construction Site">
+                </div>
+                <div class="thumbnail" onclick="changeMainImage('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&q=80', this)">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=300&q=80" alt="Final Structure">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <section class="project-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="content-section">
+                        <h2 class="section-title">Project Overview</h2>
+                        <p>Proyek Industrial Steel Structure merupakan salah satu proyek unggulan PT Armindo Jaya Mandiri dalam bidang fabrikasi struktur baja untuk industri. Proyek ini melibatkan pembuatan rangka baja untuk kompleks pabrik manufaktur dengan total berat struktur mencapai 500 ton.</p>
+                        
+                        <p>Struktur baja yang dibangun dirancang untuk menahan beban operasional yang tinggi dengan standar keselamatan internasional. Material yang digunakan adalah baja kualitas tinggi dengan coating anti-korosi untuk memastikan durabilitas jangka panjang.</p>
+
+                        <h3 class="mt-4 mb-3">Tantangan Proyek</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Presisi tinggi dalam fabrikasi dengan toleransi minimal</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Koordinasi kompleks antara tim fabrikasi dan instalasi</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Pengerjaan dalam jadwal yang ketat tanpa mengurangi kualitas</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Implementasi standar keselamatan kerja yang tinggi</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-section">
+                        <h2 class="section-title">Technical Specifications</h2>
+                        <div class="specs-grid">
+                            <div class="spec-card">
+                                <h6>Material Type</h6>
+                                <p>Steel Grade SS400 & SM490</p>
+                            </div>
+                            <div class="spec-card">
+                                <h6>Total Weight</h6>
+                                <p>500 Tons</p>
+                            </div>
+                            <div class="spec-card">
+                                <h6>Structure Height</h6>
+                                <p>25 Meters</p>
+                            </div>
+                            <div class="spec-card">
+                                <h6>Area Coverage</h6>
+                                <p>5,000 m²</p>
+                            </div>
+                            <div class="spec-card">
+                                <h6>Welding Standard</h6>
+                                <p>AWS D1.1</p>
+                            </div>
+                            <div class="spec-card">
+                                <h6>Coating System</h6>
+                                <p>Epoxy Primer + PU Topcoat</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2 class="section-title">Process & Methodology</h2>
+                        <div class="process-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h5>Design & Engineering</h5>
+                                    <p>Pembuatan detail engineering drawing dan perhitungan struktural menggunakan software SAP2000 dan AutoCAD 3D.</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h5>Material Procurement</h5>
+                                    <p>Pengadaan material baja berkualitas tinggi dari supplier terpercaya dengan sertifikat Mill Test Certificate.</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h5>Fabrication Process</h5>
+                                    <p>Proses fabrikasi di workshop dengan menggunakan mesin CNC cutting dan welding robot untuk presisi maksimal.</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h5>Quality Control</h5>
+                                    <p>Inspeksi kualitas meliputi dimensional check, welding inspection, dan surface preparation sebelum coating.</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">5</div>
+                                <div class="step-content">
+                                    <h5>Installation & Commissioning</h5>
+                                    <p>Pemasangan struktur di lokasi dengan menggunakan crane kapasitas tinggi dan tim ahli instalasi berpengalaman.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="content-section">
+                        <h3 class="section-title">Project Results</h3>
+                        <div class="spec-card mb-3">
+                            <h6>Quality Achievement</h6>
+                            <p>100% sesuai spesifikasi dengan zero rework</p>
+                        </div>
+                        <div class="spec-card mb-3">
+                            <h6>Schedule Performance</h6>
+                            <p>Selesai 2 minggu lebih cepat dari jadwal</p>
+                        </div>
+                        <div class="spec-card mb-3">
+                            <h6>Safety Record</h6>
+                            <p>Zero accident selama 8 bulan pelaksanaan</p>
+                        </div>
+                        <div class="spec-card mb-3">
+                            <h6>Client Satisfaction</h6>
+                            <p>Excellent rating dengan rekomendasi untuk proyek selanjutnya</p>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3 class="section-title">Services Used</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-cogs text-primary me-2"></i>Steel Fabrication</li>
+                            <li class="mb-2"><i class="fas fa-drafting-compass text-primary me-2"></i>Detail Engineering</li>
+                            <li class="mb-2"><i class="fas fa-tools text-primary me-2"></i>Installation Services</li>
+                            <li class="mb-2"><i class="fas fa-shield-alt text-primary me-2"></i>Quality Assurance</li>
+                            <li class="mb-2"><i class="fas fa-paint-brush text-primary me-2"></i>Surface Treatment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Projects -->
+    <section class="related-projects">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Related Projects</h2>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=400&q=80" alt="Piping System">
+                        <div class="project-card-content">
+                            <div class="category">Piping & Mechanical</div>
+                            <h5>Sistem Perpipaan Industri</h5>
+                            <p>Fabrikasi dan instalasi sistem perpipaan kompleks untuk industri kimia.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1448630360428-65456885c650?w=400&q=80" alt="Warehouse">
+                        <div class="project-card-content">
+                            <div class="category">Industrial Building</div>
+                            <h5>Gudang Logistik Modern</h5>
+                            <p>Konstruksi gudang dengan sistem conveyor terintegrasi.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1590725140246-20acdee442be?w=400&q=80" alt="Pressure Vessel">
+                        <div class="project-card-content">
+                            <div class="category">Pressure Vessel</div>
+                            <h5>Tangki Bertekanan</h5>
+                            <p>Fabrikasi tangki bertekanan tinggi dengan sertifikasi ASME.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5><i class="fas fa-industry me-2"></i>Constru.</h5>
+                    <p class="mb-4">We are a leading construction company dedicated to building excellence and delivering innovative solutions for all your construction needs.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5>Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Steel Fabrication</a></li>
+                        <li><a href="#">Industrial Construction</a></li>
+                        <li><a href="#">Equipment Installation</a></li>
+                        <li><a href="#">Piping Systems</a></li>
+                        <li><a href="#">Quality Assurance</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5>Company</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#team">Our Team</a></li>
+                        <li><a href="index.html#projects">Projects</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="#">Career</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to our newsletter to get the latest updates and news.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                        <button class="btn btn-contact" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PT Armindo Jaya Mandiri. All rights reserved. | Privacy Policy | Terms & Conditions</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function changeMainImage(src, thumbnail) {
+            document.getElementById('mainImage').src = src;
+            
+            // Remove active class from all thumbnails
+            document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+            
+            // Add active class to clicked thumbnail
+            thumbnail.classList.add('active');
+        }
+    </script>
+</body>
+</html>
